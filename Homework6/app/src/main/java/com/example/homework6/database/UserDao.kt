@@ -19,7 +19,7 @@ interface UserDao {
     @Query("SELECT * FROM User")
     fun getUsersWithCars(): List<CarsRelatedToUsers>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert()
     fun insertAll(vararg users: User)
 
     @Delete()

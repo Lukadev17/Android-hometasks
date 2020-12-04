@@ -7,7 +7,7 @@ interface CarDao {
     @Query("SELECT * FROM car")
     fun getAll(): List<Car>
 
-    @Query("SELECT * FROM car WHERE uid IN (:carIds)")
+    @Query("SELECT * FROM car WHERE carid IN (:carIds)")
     fun loadAllByIds(carIds: IntArray): List<Car>
 
     @Query(

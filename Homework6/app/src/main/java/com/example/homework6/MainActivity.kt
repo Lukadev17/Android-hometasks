@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         val getCarsButton = findViewById<Button>(R.id.getOwnersCars)
         val deleteButton = findViewById<Button>(R.id.deleteData)
 
-//        insertButton.setOnClickListener {
+        insertButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
                 AppDatabase.getDatabase(this@MainActivity).userDao().insertAll(
                     User(1, "Marcus", "Rashford"),
                     User(2, "Bruno", "Fernandes")
                 )
-//            }
+            }
 
             GlobalScope.launch(Dispatchers.IO) {
                 AppDatabase.getDatabase(this@MainActivity).carDao().insertAll(
@@ -38,14 +38,10 @@ class MainActivity : AppCompatActivity() {
                     Car(7, 2, "Nissan", "skyline")
                 )
             }
-
-            GlobalScope.launch(Dispatchers.IO) {
-                print(AppDatabase.getDatabase(this@MainActivity).userDao().getAll())
-            }
         }
         getCarsButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
-                AppDatabase.getDatabase(this@MainActivity).userDao().getUsersWithCars()
+                println(AppDatabase.getDatabase(this@MainActivity).userDao().getUsersWithCars())
             }
         }
         deleteButton.setOnClickListener {
