@@ -21,7 +21,6 @@ import retrofit2.Response
 
 
 class TopRatedFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
     val items = ArrayList<ItemModel>()
     private lateinit  var adapter: RecyclerViewAdapter
     private  lateinit var rootview: View
@@ -38,7 +37,6 @@ class TopRatedFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         rootview =  inflater.inflate(R.layout.fragment_top_rated, container, false)
-        auth = FirebaseAuth.getInstance()
         adapter = RecyclerViewAdapter()
         val filmTopRatedList = rootview.findViewById<RecyclerView>(R.id.movieView)
         filmTopRatedList.layoutManager = LinearLayoutManager(this.activity)

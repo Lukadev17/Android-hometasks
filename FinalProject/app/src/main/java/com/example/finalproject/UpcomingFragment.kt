@@ -21,7 +21,6 @@ import retrofit2.Response
 
 
 class UpcomingFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
     val items = ArrayList<ItemModel>()
     private lateinit  var adapter: RecyclerViewAdapter
     private  lateinit var rootview: View
@@ -37,7 +36,6 @@ class UpcomingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         rootview =  inflater.inflate(R.layout.fragment_upcoming, container, false)
-        auth = FirebaseAuth.getInstance()
         adapter = RecyclerViewAdapter()
         val filmUpcomingList = rootview.findViewById<RecyclerView>(R.id.movieView)
         filmUpcomingList.layoutManager = LinearLayoutManager(this.activity)
@@ -74,7 +72,7 @@ class UpcomingFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<UpcomingMovies>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("tmdbApCall", "Error occurred while getting data from tmdbApi")
             }
         })
     }

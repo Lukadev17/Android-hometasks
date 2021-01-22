@@ -20,7 +20,6 @@ import retrofit2.Call
 import retrofit2.Response
 
 class PopularFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
     val items = ArrayList<ItemModel>()
     private lateinit  var adapter: RecyclerViewAdapter
     private  lateinit var rootview: View
@@ -36,7 +35,6 @@ class PopularFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_popular, container, false)
-        auth = FirebaseAuth.getInstance()
         adapter = RecyclerViewAdapter()
         val filmPopularList = rootview.findViewById<RecyclerView>(R.id.movieView)
         filmPopularList.layoutManager = LinearLayoutManager(this.activity)
@@ -46,28 +44,10 @@ class PopularFragment : Fragment() {
         return filmPopularList
     }
 
-
-
-
-//    private fun init(){
-//
-//        rootview = inflater.inflate(R.layout.fragment_popular, container, false)
-//        auth = FirebaseAuth.getInstance()
-//
-//        val filmPopularList = rootview.findViewById<RecyclerView>(R.id.movieView)
-//        filmPopularList.layoutManager = LinearLayoutManager(this.activity)
-//        filmPopularList.adapter = adapter
-//
-//
-//        loadExamples()
-//    }
-//
     private fun addItem(itemData: ItemModel){
         items.add(itemData)
-
-
     }
-//
+
     private fun loadExamples() {
         val tmdbApi = ServiceBuilder.buildService(TmdbEndpoints::class.java)
         val response = tmdbApi.getMovies("e2c5955aea231378ab33a4a249eb10b8")
@@ -93,5 +73,4 @@ class PopularFragment : Fragment() {
             }
         })
     }
-
 }

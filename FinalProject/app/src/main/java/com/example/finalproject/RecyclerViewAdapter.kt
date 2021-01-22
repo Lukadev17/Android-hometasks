@@ -23,9 +23,6 @@ class RecyclerViewAdapter() :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(itemModel: ItemModel) {
             Glide.with(itemView.context).load("https://image.tmdb.org/t/p/w500${itemModel.image}").into(itemView.imageView)
-//            itemView.titleTextView.text = itemView.titleTextView.text.toString().replace("{title}", itemModel.title)
-//            itemView.overviewTextView.text = itemView.overviewTextView.text.toString().replace("{overview}", itemModel.description)
-//            itemView.releaseDateTextView.text = itemView.releaseDateTextView.text.toString().replace("{releaseDate}", itemModel.date)
             itemView.titleTextView.text =  itemModel.title
             itemView.overviewTextView.text = itemModel.description
             itemView.releaseDateTextView.text = itemModel.date

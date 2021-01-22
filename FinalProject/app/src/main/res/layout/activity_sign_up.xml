@@ -29,7 +29,7 @@
             android:background="#31F6F4F4"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            android:hint="enter_your_email"
+            android:hint="enter email"
             android:inputType="textEmailAddress"
             android:paddingHorizontal="20dp" />
 
@@ -41,7 +41,7 @@
             android:background="#31F6F4F4"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            android:hint="enter_your_password"
+            android:hint="enter password"
             android:inputType="textPassword"
             android:paddingHorizontal="20dp" />
 
@@ -53,7 +53,7 @@
             android:background="#31F6F4F4"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            android:hint="enter_your_password_2"
+            android:hint="repeat password"
             android:inputType="textPassword"
             android:paddingHorizontal="20dp" />
 
@@ -64,7 +64,7 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="10dp"
             android:background="#FFFF"
-            android:text="sign_up_2"
+            android:text="sign up"
             android:textColor="#21A6D8"
             android:textSize="21sp" />
 

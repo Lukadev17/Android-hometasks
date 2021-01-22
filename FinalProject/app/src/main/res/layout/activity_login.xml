@@ -36,7 +36,7 @@
                 android:background="#FFFFFF"
                 android:textColor="#FF151515"
                 android:textColorHint="#151515"
-                android:hint="enter_your_email"
+                android:hint="enter your email"
                 android:maxLines="1"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="20dp"
@@ -51,7 +51,7 @@
                 android:textColor="#FF151515"
                 android:textColorHint="#FF151515"
                 android:maxLines="1"
-                android:hint="enter_your_password"
+                android:hint="enter your password"
                 android:inputType="textPassword"
                 android:paddingHorizontal="20dp"
                 android:importantForAutofill="no" />
@@ -65,8 +65,8 @@
                 android:layout_gravity="bottom"
                 android:layout_marginTop="10dp"
                 android:background="#01b4e4"
-                android:text="log_in"
-                android:textColor="#ECE1E1"
+                android:text="log in"
+                android:textColor="#01b4e4"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="don_t_have_an_account"
+                android:text="dont have an account?"
                 android:textSize="17sp"
                 android:textColor="#ECE1E1" />
 
@@ -92,12 +92,10 @@
                 android:layout_height="50dp"
                 android:layout_gravity="bottom"
                 android:layout_margin="20dp"
-                android:background="#FFFF"
-                android:text="sign_up"
-                android:textColor="#21A6D8"
+                android:background="#21a6d8"
+                android:text="sign up"
+                android:textColor="#01b4e4"
                 android:textSize="21sp" />
-
-
 
         </LinearLayout>
 

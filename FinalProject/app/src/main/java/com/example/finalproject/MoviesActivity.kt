@@ -1,7 +1,12 @@
 package com.example.finalproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -9,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MoviesActivity: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-//    lateinit var toolbar: Toolbar
+    lateinit var toolbar: Toolbar
     private lateinit var viewPager: ViewPager2
     private lateinit var adapter: ViewPagerAdapter
     private lateinit var tabs: TabLayout
@@ -19,11 +24,11 @@ class MoviesActivity: AppCompatActivity() {
         setContentView(R.layout.activity_movies)
 
         viewPager = findViewById(R.id.viewPager)
-//        toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         tabs = findViewById(R.id.tabs)
 
-//        setSupportActionBar(toolbar)
-//        supportActionBar?.title = "Explore Movies"
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Explore Movies"
 
         adapter = ViewPagerAdapter(this)
         adapter.addFragment(UpcomingFragment())
@@ -39,20 +44,29 @@ class MoviesActivity: AppCompatActivity() {
             }
             viewPager.setCurrentItem(position, true)
         }.attach()
-
-//        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                viewPager.currentItem = tabs.selectedTabPosition
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//                Toast.makeText(this@MoviesActivity, "Unselected ${tab?.text}", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//                Toast.makeText(this@MoviesActivity, "Reselected ${tab?.text}", Toast.LENGTH_SHORT).show()
-//            }
-//        })
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item1 -> {
+                Toast.makeText(this, "You are Signed in", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.item2 -> {
+                FirebaseAuth.getInstance().signOut();
+                val i =  Intent(this, LoginActivity::class.java);
+                startActivity(i);
+                i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(i)
+                return true
+            }
+        }
+        return onOptionsItemSelected(item)
+    }
 }
